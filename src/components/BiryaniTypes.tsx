@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -65,18 +66,20 @@ const BiryaniTypes = () => {
                 <p className="text-gray-600 text-sm">{type.description}</p>
               </CardContent>
               <CardFooter>
-                <Button variant="outline" className="w-full border-biryani-saffron text-biryani-saffron hover:bg-biryani-saffron hover:text-white">
-                  Learn More
-                </Button>
+                <Link to={`/recipe/${type.id}`} className="w-full">
+                  <Button variant="outline" className="w-full border-biryani-saffron text-biryani-saffron hover:bg-biryani-saffron hover:text-white">
+                    Learn More
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="link" className="text-biryani-spice font-medium">
+          <Link to="/recipes" className="text-biryani-spice font-medium inline-block">
             View All Biryani Types &rarr;
-          </Button>
+          </Link>
         </div>
       </div>
     </section>
