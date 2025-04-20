@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -41,92 +42,93 @@ const RecipeSection = () => {
           </p>
         </div>
 
-      <div className="bg-biryani-cream rounded-lg overflow-hidden shadow-lg mb-12">
-        <div className="flex flex-col lg:flex-row">
-          <div className="lg:w-1/2 h-64 lg:h-auto">
-            <img 
-              src="https://images.unsplash.com/photo-1633945274565-5f4bea20e266?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-              alt="Classic Hyderabadi Chicken Biryani" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-center">
-            <div className="mb-4">
-              <span className="inline-block px-3 py-1 text-xs font-medium text-white bg-biryani-spice rounded-full">
-                Featured Recipe
-              </span>
-            </div>
-            <h3 className="text-2xl font-bold text-biryani-charcoal mb-4">
-              Classic Hyderabadi Chicken Biryani
-            </h3>
-            <div className="flex gap-4 mb-4 text-gray-600">
-              <div className="flex items-center gap-1">
-                <Clock size={16} />
-                <span>60 mins</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <ChefHat size={16} />
-                <span>Intermediate</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <Users size={16} />
-                <span>Serves 4</span>
-              </div>
-            </div>
-            <p className="text-gray-700 mb-6">
-              Learn the authentic dum method of preparing aromatic Hyderabadi Biryani with 
-              tender chicken pieces, fragrant long-grain basmati rice, and a blend of 
-              traditional spices to create a dish fit for royalty.
-            </p>
-            <Link to="/recipe/featured" className="inline-block">
-              <Button className="bg-biryani-saffron hover:bg-biryani-spice text-white self-start">
-                View Full Recipe
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {recipes.map((recipe, index) => (
-          <Link to={`/recipe/${index + 1}`} key={index} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover-up group">
-            <div className="h-48 overflow-hidden">
+        <div className="bg-biryani-cream rounded-lg overflow-hidden shadow-lg mb-12">
+          <div className="flex flex-col lg:flex-row">
+            <div className="lg:w-1/2 h-64 lg:h-auto">
               <img 
-                src={recipe.image} 
-                alt={recipe.name} 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                src="https://images.unsplash.com/photo-1633945274565-5f4bea20e266?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                alt="Classic Hyderabadi Chicken Biryani" 
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="p-4">
-              <h4 className="font-playfair text-xl font-semibold text-biryani-charcoal mb-2">
-                {recipe.name}
-              </h4>
-              <div className="flex gap-3 mb-3 text-sm text-gray-600">
+            <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-center">
+              <div className="mb-4">
+                <span className="inline-block px-3 py-1 text-xs font-medium text-white bg-biryani-spice rounded-full">
+                  Featured Recipe
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-biryani-charcoal mb-4">
+                Classic Hyderabadi Chicken Biryani
+              </h3>
+              <div className="flex gap-4 mb-4 text-gray-600">
                 <div className="flex items-center gap-1">
-                  <Clock size={14} />
-                  <span>{recipe.time}</span>
+                  <Clock size={16} />
+                  <span>60 mins</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <ChefHat size={14} />
-                  <span>{recipe.level}</span>
+                  <ChefHat size={16} />
+                  <span>Intermediate</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Users size={14} />
-                  <span>Serves {recipe.serves}</span>
+                  <Users size={16} />
+                  <span>Serves 4</span>
                 </div>
               </div>
-              <Button variant="outline" className="w-full border-biryani-saffron text-biryani-saffron hover:bg-biryani-saffron hover:text-white">
-                View Recipe
-              </Button>
+              <p className="text-gray-700 mb-6">
+                Learn the authentic dum method of preparing aromatic Hyderabadi Biryani with 
+                tender chicken pieces, fragrant long-grain basmati rice, and a blend of 
+                traditional spices to create a dish fit for royalty.
+              </p>
+              <Link to="/recipe/featured" className="inline-block">
+                <Button className="bg-biryani-saffron hover:bg-biryani-spice text-white self-start">
+                  View Full Recipe
+                </Button>
+              </Link>
             </div>
-          </Link>
-        ))}
-      </div>
+          </div>
+        </div>
 
-      <div className="text-center mt-12">
-        <Link to="/recipes" className="text-biryani-spice font-medium">
-          Browse All Recipes &rarr;
-        </Link>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {recipes.map((recipe, index) => (
+            <Link to={`/recipe/${index + 1}`} key={index} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover-up group">
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={recipe.image} 
+                  alt={recipe.name} 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-4">
+                <h4 className="font-playfair text-xl font-semibold text-biryani-charcoal mb-2">
+                  {recipe.name}
+                </h4>
+                <div className="flex gap-3 mb-3 text-sm text-gray-600">
+                  <div className="flex items-center gap-1">
+                    <Clock size={14} />
+                    <span>{recipe.time}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <ChefHat size={14} />
+                    <span>{recipe.level}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Users size={14} />
+                    <span>Serves {recipe.serves}</span>
+                  </div>
+                </div>
+                <Button variant="outline" className="w-full border-biryani-saffron text-biryani-saffron hover:bg-biryani-saffron hover:text-white">
+                  View Recipe
+                </Button>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link to="/recipes" className="text-biryani-spice font-medium">
+            Browse All Recipes &rarr;
+          </Link>
+        </div>
       </div>
     </section>
   );
