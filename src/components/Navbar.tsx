@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 interface NavLinksProps {
   mobile?: boolean;
@@ -24,12 +25,12 @@ const Navbar = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="biryani-container flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <span className="text-biryani-saffron text-2xl">✦</span>
           <span className="font-playfair font-bold text-xl md:text-2xl text-biryani-charcoal">
             Biryani <span className="text-biryani-saffron">Bliss</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
@@ -67,17 +68,17 @@ const Navbar = () => {
 // Separate component for nav links to avoid duplication
 const NavLinks: React.FC<NavLinksProps> = ({ mobile = false, setIsMenuOpen }) => {
   const links = [
-    { name: "Home", href: "#" },
-    { name: "Types", href: "#types" },
-    { name: "Recipes", href: "#recipes" },
-    { name: "History", href: "#history" },
-    { name: "Blog", href: "#blog" },
+    { name: "Home", href: "/" },
+    { name: "Types", href: "/#types" },
+    { name: "Recipes", href: "/recipes" },
+    { name: "History", href: "/#history" },
+    { name: "Blog", href: "/blogs" },
   ];
   
   return links.map((link) => (
-    <a
+    <Link
       key={link.name}
-      href={link.href}
+      to={link.href}
       className={`
         ${mobile ? 'py-2 border-b border-gray-100' : ''} 
         font-medium hover:text-biryani-saffron transition-colors
@@ -85,7 +86,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ mobile = false, setIsMenuOpen }) =>
       onClick={() => mobile && setIsMenuOpen && setIsMenuOpen(false)}
     >
       {link.name}
-    </a>
+    </Link>
   ));
 };
 

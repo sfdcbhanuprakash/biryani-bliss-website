@@ -1,12 +1,88 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import BiryaniTypes from '@/components/BiryaniTypes';
 import RecipeSection from '@/components/RecipeSection';
 import Footer from '@/components/Footer';
 import { Button } from "@/components/ui/button";
+
+const blogSection = (
+  <section id="blog" className="py-20 bg-white">
+    <div className="biryani-container">
+      <div className="text-center mb-12">
+        <h2 className="font-playfair font-bold text-biryani-charcoal mb-4">
+          Biryani <span className="text-biryani-saffron">Tips & Stories</span>
+        </h2>
+        <p className="text-gray-700 max-w-2xl mx-auto">
+          Enhance your biryani knowledge with our expert tips, stories, and the latest trends in biryani culture.
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          {
+            id: "1",
+            title: "5 Secrets to Perfect Biryani Rice Every Time",
+            excerpt: "Master the art of cooking perfectly separated, aromatic basmati rice with these expert tips from top chefs.",
+            date: "April 12, 2023",
+            image: "https://images.unsplash.com/photo-1551326844-4df70f78d0e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+          },
+          {
+            id: "2",
+            title: "The Essential Biryani Spice Guide",
+            excerpt: "Discover the 12 essential spices that create the complex, layered flavors in authentic biryani.",
+            date: "March 28, 2023",
+            image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+          },
+          {
+            id: "3",
+            title: "How to Create a Biryani Feast for Special Occasions",
+            excerpt: "Plan the perfect biryani-centered celebration menu with these complementary sides and desserts.",
+            date: "March 15, 2023",
+            image: "https://images.unsplash.com/photo-1525518392674-39ba1febe603?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+          }
+        ].map((post) => (
+          <div key={post.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow hover-up">
+            <div className="h-48 overflow-hidden">
+              <img 
+                src={post.image} 
+                alt={post.title} 
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+            </div>
+            <div className="p-5">
+              <div className="text-sm text-gray-500 mb-2">{post.date}</div>
+              <h3 className="font-playfair text-xl font-semibold text-biryani-charcoal mb-2">
+                {post.title}
+              </h3>
+              <p className="text-gray-600 mb-4">{post.excerpt}</p>
+              <Link 
+                to={`/blog/${post.id}`}
+                className="inline-flex items-center text-biryani-spice hover:underline font-medium"
+              >
+                Read more
+                <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div className="text-center mt-12">
+        <Link 
+          to="/blogs" 
+          className="inline-block px-6 py-3 bg-biryani-saffron text-white font-medium rounded-lg hover:bg-biryani-spice transition-colors"
+        >
+          View All Articles
+        </Link>
+      </div>
+    </div>
+  </section>
+);
 
 const Index = () => {
   return (
@@ -125,76 +201,7 @@ const Index = () => {
           </section>
           
           {/* Blog Section */}
-          <section id="blog" className="py-20 bg-white">
-            <div className="biryani-container">
-              <div className="text-center mb-12">
-                <h2 className="font-playfair font-bold text-biryani-charcoal mb-4">
-                  Biryani <span className="text-biryani-saffron">Tips & Stories</span>
-                </h2>
-                <p className="text-gray-700 max-w-2xl mx-auto">
-                  Enhance your biryani knowledge with our expert tips, stories, and the latest trends in biryani culture.
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                  {
-                    title: "5 Secrets to Perfect Biryani Rice Every Time",
-                    excerpt: "Master the art of cooking perfectly separated, aromatic basmati rice with these expert tips from top chefs.",
-                    date: "April 12, 2023",
-                    image: "https://images.unsplash.com/photo-1551326844-4df70f78d0e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                  },
-                  {
-                    title: "The Essential Biryani Spice Guide",
-                    excerpt: "Discover the 12 essential spices that create the complex, layered flavors in authentic biryani.",
-                    date: "March 28, 2023",
-                    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                  },
-                  {
-                    title: "How to Create a Biryani Feast for Special Occasions",
-                    excerpt: "Plan the perfect biryani-centered celebration menu with these complementary sides and desserts.",
-                    date: "March 15, 2023",
-                    image: "https://images.unsplash.com/photo-1525518392674-39ba1febe603?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                  }
-                ].map((post, index) => (
-                  <div key={index} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow hover-up">
-                    <div className="h-48 overflow-hidden">
-                      <img 
-                        src={post.image} 
-                        alt={post.title} 
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <div className="text-sm text-gray-500 mb-2">{post.date}</div>
-                      <h3 className="font-playfair text-xl font-semibold text-biryani-charcoal mb-2">
-                        {post.title}
-                      </h3>
-                      <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                      <a 
-                        href="#" 
-                        className="inline-flex items-center text-biryani-spice hover:underline font-medium"
-                      >
-                        Read more
-                        <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                          <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="text-center mt-12">
-                <a 
-                  href="#" 
-                  className="inline-block px-6 py-3 bg-biryani-saffron text-white font-medium rounded-lg hover:bg-biryani-spice transition-colors"
-                >
-                  View All Articles
-                </a>
-              </div>
-            </div>
-          </section>
+          {blogSection}
           
           {/* CTA Section */}
           <section className="py-16 bg-gradient-to-r from-biryani-charcoal to-biryani-wood text-white">

@@ -7,6 +7,7 @@ import { ChefHat, Clock, Users } from "lucide-react";
 const RecipeSection = () => {
   const recipes = [
     {
+      id: "1",
       name: "Kolkata Style Chicken Biryani",
       time: "75 mins",
       level: "Intermediate",
@@ -14,6 +15,7 @@ const RecipeSection = () => {
       image: "https://images.unsplash.com/photo-1642821373181-696a54913e93?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     },
     {
+      id: "2",
       name: "Lucknowi Chicken Biryani",
       time: "90 mins",
       level: "Advanced",
@@ -21,6 +23,7 @@ const RecipeSection = () => {
       image: "https://images.unsplash.com/photo-1631515242808-497c3d4a88cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     },
     {
+      id: "3",
       name: "Quick 30-Minute Biryani",
       time: "30 mins",
       level: "Easy",
@@ -89,8 +92,8 @@ const RecipeSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {recipes.map((recipe, index) => (
-            <Link to={`/recipe/${index + 1}`} key={index} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover-up group">
+          {recipes.map((recipe) => (
+            <Link to={`/recipe/${recipe.id}`} key={recipe.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover-up group">
               <div className="h-48 overflow-hidden">
                 <img 
                   src={recipe.image} 

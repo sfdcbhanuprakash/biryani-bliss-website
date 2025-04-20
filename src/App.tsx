@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import RecipeDetail from "./pages/RecipeDetail";
 import BlogPost from "./pages/BlogPost";
+import Recipes from "./pages/Recipes";
+import Blogs from "./pages/Blogs";
 
 const queryClient = new QueryClient();
 
@@ -19,7 +21,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/recipes" element={<Recipes />} />
           <Route path="/recipe/:id" element={<RecipeDetail />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
