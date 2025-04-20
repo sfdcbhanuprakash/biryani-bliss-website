@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import BiryaniTypes from '@/components/BiryaniTypes';
 import RecipeSection from '@/components/RecipeSection';
 import Footer from '@/components/Footer';
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   return (

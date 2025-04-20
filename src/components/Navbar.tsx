@@ -3,6 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
+interface NavLinksProps {
+  mobile?: boolean;
+  setIsMenuOpen?: (isOpen: boolean) => void;
+}
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,7 +65,7 @@ const Navbar = () => {
 };
 
 // Separate component for nav links to avoid duplication
-const NavLinks = ({ mobile = false, setIsMenuOpen = () => {} }) => {
+const NavLinks: React.FC<NavLinksProps> = ({ mobile = false, setIsMenuOpen }) => {
   const links = [
     { name: "Home", href: "#" },
     { name: "Types", href: "#types" },
@@ -77,7 +82,7 @@ const NavLinks = ({ mobile = false, setIsMenuOpen = () => {} }) => {
         ${mobile ? 'py-2 border-b border-gray-100' : ''} 
         font-medium hover:text-biryani-saffron transition-colors
       `}
-      onClick={() => mobile && setIsMenuOpen(false)}
+      onClick={() => mobile && setIsMenuOpen && setIsMenuOpen(false)}
     >
       {link.name}
     </a>
