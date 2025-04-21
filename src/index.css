@@ -122,12 +122,8 @@
     @apply absolute bottom-0 left-0 h-1 w-16 bg-biryani-saffron;
   }
 
-  .fade-in {
-    @apply transition-opacity duration-500 ease-in-out;
-  }
-
   .hover-up {
-    @apply transition-transform duration-300 hover:-translate-y-1;
+    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 
   .spice-decoration {
@@ -137,5 +133,72 @@
   .spice-decoration::before {
     content: "✦";
     @apply text-biryani-saffron absolute -left-6 top-1/2 transform -translate-y-1/2;
+  }
+  
+  /* Animation Utilities */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1; 
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+  
+  .animate-slide-in {
+    animation: slideInRight 0.3s ease-out forwards;
+  }
+  
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 }
