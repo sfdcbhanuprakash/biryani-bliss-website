@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-// All-India regional biryani types with short description and origin
 const biryaniTypes = [
   {
     id: 1,
@@ -44,7 +43,7 @@ const biryaniTypes = [
   {
     id: 6,
     name: "Dindigul Biryani",
-    description: "Fiery, sour biryani characterized by cubes of meat & unique masalas.",
+    description: "Fiery, sour biryani with cubes of meat & unique masalas.",
     image: "https://images.unsplash.com/photo-1519864341742-e5381e2fd87e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     origin: "Dindigul, Tamil Nadu"
   },
@@ -173,7 +172,7 @@ const biryaniTypes = [
     description: "Mild, fresh coconut-vegetable biryani, temple style.",
     image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     origin: "Udupi, Karnataka"
-  },
+  }
 ];
 
 const BiryaniTypes = () => {
@@ -226,4 +225,3 @@ const BiryaniTypes = () => {
 };
 
 export default BiryaniTypes;
-
