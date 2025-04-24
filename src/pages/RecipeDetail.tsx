@@ -1,9 +1,11 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { toast } from 'sonner';
 import { 
-  Clock, Users, ChefHat, Share2, Star 
+  Clock, Users, ChefHat, Share2, Star, 
+  ArrowLeft, ArrowRight, MessageSquare, ThumbsUp 
 } from "lucide-react";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
