@@ -10,6 +10,7 @@ interface RecipeProps {
   image: string;
   time?: string;
   level?: string;
+  region?: string;
 }
 
 interface RelatedRecipesProps {
@@ -40,6 +41,9 @@ const RelatedRecipes: React.FC<RelatedRecipesProps> = ({ recipes }) => {
               <h3 className="font-playfair text-base font-semibold text-biryani-charcoal mb-1 line-clamp-1">
                 {recipe.name}
               </h3>
+              {recipe.region && (
+                <p className="text-sm text-gray-600 mb-1">{recipe.region} Style</p>
+              )}
               {(recipe.time || recipe.level) && (
                 <div className="flex gap-3 mb-2 text-xs text-gray-600">
                   {recipe.time && (
