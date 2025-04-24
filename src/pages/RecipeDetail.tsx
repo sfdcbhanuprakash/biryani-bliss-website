@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -11,6 +10,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from "@/components/ui/button";
 import RelatedRecipes from '@/components/RelatedRecipes';
+import RecipeFAQ from '@/components/RecipeFAQ';
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -261,7 +261,7 @@ const RecipeDetail = () => {
     if (navigator.share) {
       navigator.share({
         title: recipe.name,
-        text: `Check out this amazing ${recipe.name} recipe!`,
+        text: `Check out this amazing ${recipe.name.toLowerCase()} with our step-by-step recipe. ${recipe.description}`,
         url: window.location.href,
       })
       .catch((error) => console.log('Error sharing', error));
@@ -494,6 +494,8 @@ const RecipeDetail = () => {
                   )}
                 </section>
 
+                <RecipeFAQ recipeName={recipe.name} />
+                
                 <RelatedRecipes recipes={relatedRecipes} />
               </div>
 
