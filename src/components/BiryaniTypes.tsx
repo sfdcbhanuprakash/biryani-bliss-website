@@ -180,11 +180,11 @@ const BiryaniTypes = () => {
     <section id="types" className="py-20 bg-gradient-to-b from-biryani-cream to-white">
       <div className="biryani-container">
         <div className="text-center mb-12">
-          <h2 className="font-playfair font-bold text-biryani-charcoal mb-4">
-            Explore the <span className="text-biryani-saffron">World</span> of Biryani
-          </h2>
+          <h1 className="font-playfair font-bold text-4xl md:text-5xl text-biryani-charcoal mb-4">
+            Types of <span className="text-biryani-saffron">Indian Biryani</span>
+          </h1>
           <p className="text-gray-700 max-w-2xl mx-auto">
-            Biryani has evolved into countless varieties across regions, each with its unique preparation techniques, spice blends, and cultural significance.
+            Discover the diverse world of biryani, from the royal Hyderabadi style to the subtle Lucknowi preparation. Each region in India brings its unique touch to this beloved dish.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -193,7 +193,7 @@ const BiryaniTypes = () => {
               <div className="h-44 overflow-hidden">
                 <img 
                   src={type.image} 
-                  alt={type.name} 
+                  alt={`${type.name} served in traditional style from ${type.origin}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
@@ -207,7 +207,7 @@ const BiryaniTypes = () => {
               <CardFooter>
                 <Link to={`/recipe/${type.id}`} className="w-full">
                   <Button variant="outline" className="w-full border-biryani-saffron text-biryani-saffron hover:bg-biryani-saffron hover:text-white text-xs">
-                    Learn More
+                    View Recipe
                   </Button>
                 </Link>
               </CardFooter>

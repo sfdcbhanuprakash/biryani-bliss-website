@@ -1,19 +1,9 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { toast } from 'sonner';
 import { 
-  Clock, 
-  Users, 
-  ChefHat, 
-  Share2, 
-  ThumbsUp, 
-  ThumbsDown, 
-  MessageSquare, 
-  ArrowLeft, 
-  ArrowRight,
-  Star 
+  Clock, Users, ChefHat, Share2, Star 
 } from "lucide-react";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -29,8 +19,8 @@ const RecipeDetail = () => {
   const [showCommentInput, setShowCommentInput] = useState(false);
   const [comment, setComment] = useState('');
 
-  // All recipes data - in a real app this would come from an API or database
   const allRecipes = [
+    // All recipes data - in a real app this would come from an API or database
     {
       id: 1,
       name: "Hyderabadi Chicken Biryani",
@@ -255,18 +245,15 @@ const RecipeDetail = () => {
     }
   ];
 
-  // Find the current recipe based on the ID
   const recipe = allRecipes.find(r => r.id === recipeId) || allRecipes[0];
   
-  // Get previous and next recipes
   const prevRecipe = allRecipes.find(r => r.id === recipeId - 1);
   const nextRecipe = allRecipes.find(r => r.id === recipeId + 1);
 
-  // Get related recipes (excluding current one)
   const relatedRecipes = allRecipes
     .filter(r => r.id !== recipeId)
-    .sort(() => 0.5 - Math.random()) // Shuffle array
-    .slice(0, 3); // Take first 3
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 3);
 
   const handleShare = () => {
     if (navigator.share) {
@@ -297,15 +284,45 @@ const RecipeDetail = () => {
   };
 
   useEffect(() => {
-    // Scroll to top when recipe changes
     window.scrollTo(0, 0);
   }, [recipeId]);
 
   return (
     <>
       <Helmet>
-        <title>{recipe.name} Recipe - Biryani Bliss</title>
-        <meta name="description" content={recipe.description} />
+        <title>{`${recipe.name} Recipe - Authentic Indian Biryani | Biryani Bliss`}</title>
+        <meta name="description" content={`Learn how to make authentic ${recipe.name.toLowerCase()} with our step-by-step recipe. ${recipe.description}`} />
+        <meta property="og:title" content={`${recipe.name} Recipe - Biryani Bliss`} />
+        <meta property="og:description" content={recipe.description} />
+        <meta property="og:image" content={recipe.image} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={window.location.href} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Recipe",
+            "name": recipe.name,
+            "image": recipe.image,
+            "description": recipe.description,
+            "author": {
+              "@type": "Organization",
+              "name": "Biryani Bliss"
+            },
+            "datePublished": "2024-04-24",
+            "prepTime": `PT${recipe.preparationTime.split(" ")[0]}M`,
+            "cookTime": `PT${recipe.cookingTime.split(" ")[0]}M`,
+            "totalTime": `PT${parseInt(recipe.preparationTime) + parseInt(recipe.cookingTime)}M`,
+            "recipeYield": `${recipe.servings} servings`,
+            "recipeCategory": "Main Course",
+            "recipeCuisine": "Indian",
+            "recipeIngredient": recipe.ingredients,
+            "recipeInstructions": recipe.instructions.map((step, index) => ({
+              "@type": "HowToStep",
+              "position": index + 1,
+              "text": step
+            }))
+          })}
+        </script>
       </Helmet>
 
       <div className="flex flex-col min-h-screen">
@@ -314,7 +331,7 @@ const RecipeDetail = () => {
           <div className="relative h-[50vh] overflow-hidden">
             <img 
               src={recipe.image} 
-              alt={recipe.name}
+              alt={`${recipe.name} - Traditional ${recipe.origin} style biryani dish`}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
@@ -382,7 +399,7 @@ const RecipeDetail = () => {
             <div className="grid md:grid-cols-[2fr,1fr] gap-8">
               <div>
                 <section className="mb-8 bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover-up transition-all duration-300">
-                  <h2 className="text-2xl font-playfair font-bold mb-6 pb-2 border-b border-gray-100">Instructions</h2>
+                  <h2 className="text-2xl font-playfair font-bold mb-6 pb-2 border-b border-gray-100">Step-by-Step Instructions</h2>
                   <ol className="space-y-6">
                     {recipe.instructions.map((step, index) => (
                       <li key={index} className="flex gap-4 animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>

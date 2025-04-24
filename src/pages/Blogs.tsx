@@ -138,8 +138,12 @@ const Blogs = () => {
   return (
     <>
       <Helmet>
-        <title>Biryani Blog - Tips, History & Culture | Biryani Bliss</title>
-        <meta name="description" content="Explore the world of biryani through our collection of expert tips, historical insights, and cultural stories." />
+        <title>Biryani Blog - Expert Tips, History & Cultural Stories | Biryani Bliss</title>
+        <meta name="description" content="Explore the rich world of biryani through expert cooking tips, historical insights, and cultural stories. Learn from master chefs and discover the secrets of perfect biryani." />
+        <meta property="og:title" content="Biryani Blog - Tips, History & Culture | Biryani Bliss" />
+        <meta property="og:description" content="Discover expert biryani cooking tips, rich history, and cultural stories behind India's most beloved dish." />
+        <meta property="og:type" content="blog" />
+        <meta property="og:url" content={window.location.href} />
       </Helmet>
 
       <div className="flex flex-col min-h-screen">
